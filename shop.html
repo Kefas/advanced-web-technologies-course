@@ -1,0 +1,86 @@
+<html ng-app="shopApp">
+<head>
+    <title>Shopping list</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/custom.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body >
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="js/shopController.js"></script>
+
+
+<div class="container">
+    <row>
+        <div class="col-lg-12 col-md-12 col-xs-12">
+            <span class="text-lg-center text-md-center text-xs-center">
+                <h1>Shop</h1>
+            </span>
+        </div>
+    </row>
+
+    <section ng-controller="shopCtrl">
+        <row>
+            <div class="col-lg-6 col-md-6 col-xs-6 left">
+                <div class="col-lg-6 col-md-6 col-xs-6">
+                    <label>Sortuj:</label>
+                </div>
+                <div class="col-lg-6 col-md-6 col-xs-6">
+                    <select id="category-picker" ng-model="orderProp"  ng-options="category for category in categories" class="form-control">
+                    </select>
+                </div>
+                <div ng-if="orderProp">
+                    <p>Galerie ulozone: {{orderProp.label}}</p>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-10 col-xs-12">
+                <table class="table table-striped" >
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Add to basket</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="item in items | filter: categoryFilter">
+                        <tr>
+                            <td>{{item.title}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.category}}</td>
+                            <td>
+                                <button id="button-{{item.title}}" type="button" class="btn btn-default right" aria-label="Left Align" ng-click="addOrRemoveCart(item.title)">
+                                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                    <form>
+                        <tr>
+                            <td><input id="item-title" type="text"/></td>
+                            <td><input id="item-price" type="text"/></td>
+                            <td><input id="item-category" type="text"/></td>
+                            <td>
+                                <button type="button" class="btn btn-default right" aria-label="Left Align" ng-click="addItem()">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </button>
+                            </td>
+                        </tr>
+                    </form>
+                    </tbody>
+                </table>
+            </div>
+
+        </row>
+    </section>
+
+
+</div>
+
+</body>
+</html>
