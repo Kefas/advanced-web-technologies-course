@@ -1,0 +1,64 @@
+<html ng-app="shoppingListApp">
+<head>
+    <title>Shopping list</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/custom.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body >
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="js/controller3.js"></script>
+
+
+<div class="container">
+    <row>
+        <div class="col-lg-12 col-md-12 col-xs-12">
+            <span class="text-lg-center text-md-center text-xs-center">
+                <h1>Shopping list</h1>
+            </span>
+        </div>
+    </row>
+
+    <section ng-controller="ShoppingListCtrl">
+        <row>
+            <div id="{{client.name}}-list" class="col-lg-3 col-md-5 col-sm-12 shopping-list" ng-repeat="client in clients">
+                <row>
+                    <form>
+                        <div class="col-lg-12 col-md-12 col-sm-12 text-lg-center text-md-center text-xs-center">
+                            <span>{{client.name}} {{activeItems(client.name).toString()}} / {{allItems(client.name).toString()}}</span>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12" ng-repeat="item in client.shopping_list | filter: archiveFilter">
+                            <div class="col-lg-10 col-md-10 col-sm-10">
+                                <span class="left">{{item.name}}</span>
+                                <span class="right">{{ item.created_at | date : "dd/MM/yy"}}</span>
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1">
+                                <input id="checkbox-{{client.name}}-{{item.name}}" type="checkbox" ng-click="archive(client.name, item.name)" ng-checked="item.checked"/>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <input class="left" id="add-{{client.name}}"/>
+                            <button type="button" class="btn btn-default right" aria-label="Left Align" ng-click="addItem(client.name)">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <button type="button" class="btn btn-default w-100" aria-label="Left Align" ng-click="showHideArchived()">
+                                <span> Show/hide archived</span>
+                            </button>
+                        </div>
+                    </form>
+                </row>
+            </div>
+        </row>
+    </section>
+
+
+</div>
+
+</body>
+</html>

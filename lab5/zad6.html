@@ -1,0 +1,35 @@
+<html ng-app="exampleApp">
+<head>
+    <title>Demo AngularJS</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script>
+        var myApp = angular.module("exampleApp", []);
+        myApp.controller("shoppingController", function ($scope) {
+            var dayNames = ["niedziela", "poniedzialek", "wtorek", "sroda", "czwartek", "piatek", "sobota"];
+            $scope.date = new Date();
+            $scope.day = dayNames[new Date().getDay()];
+            $scope.afterTomorrow = dayNames[(new Date().getDay() + 2) % 7];
+        });
+        myApp.filter("reverse", function() {
+            return function(input) {
+                var result = "";
+                input = input || "";
+                for (var i=0; i<input.length; i++) {
+                    result = input.charAt(i) + result;
+                }
+                return result;
+            };
+        });
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12"></div>
+        </div>
+    </div>
+</body>
+</html>

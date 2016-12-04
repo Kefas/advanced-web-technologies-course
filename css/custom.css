@@ -1,0 +1,43 @@
+.image img {
+    max-width: 300px;
+    max-height: 200px;
+}
+
+.max-image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.my-tag {
+    border-radius: 3%;
+    border-color: white;
+    margin: 2px;
+    text-align: center;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.shopping-list {
+    border-radius: 3%;
+    border-color: white;
+    padding: 5px;
+    margin: 1px;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}

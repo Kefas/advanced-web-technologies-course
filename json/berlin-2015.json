@@ -1,0 +1,32 @@
+{
+  "title": "Berlińska galeria",
+  "when": "2016-12-08",
+  "description": "Zdjęcia z podróży do Berlina",
+  "tags": [ "belin",  "germany", "hipster", "city"],
+  "photos": [{
+      "photoUrl" : "img/berlin/berlin1.jpg",
+      "thumbnailUrl": "img/berlin/berlin1.jpg",
+      "photoTitle": "Berlin 1"
+    },{
+      "photoUrl" : "img/berlin/berlin2.jpg",
+      "thumbnailUrl": "img/berlin/berlin2.jpg",
+      "photoTitle": "Berlin 2"
+    },{
+      "photoUrl" : "img/berlin/berlin3.jpg",
+      "thumbnailUrl": "img/berlin/berlin3.jpg",
+      "photoTitle": "Berlin 3"
+    },{
+      "photoUrl" : "img/berlin/berlin4.jpg",
+      "thumbnailUrl": "img/berlin/berlin4.jpg",
+      "photoTitle": "Berlin 4"
+    },{
+      "photoUrl" : "img/berlin/berlin5.jpg",
+      "thumbnailUrl": "img/berlin/berlin5.jpg",
+      "photoTitle": "Berlin 5"
+    },{
+      "photoUrl" : "img/berlin/berlin6.jpg",
+      "thumbnailUrl": "img/berlin/berlin6.jpg",
+      "photoTitle": "Berlin 6"
+    }
+  ]
+}

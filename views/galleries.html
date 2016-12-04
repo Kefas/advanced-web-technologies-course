@@ -1,0 +1,47 @@
+<section ng-controller="GalleryListCtrl">
+    <h3>{{title}}</h3>
+
+    <row>
+        <div class="col-lg-6 col-md-6 col-xs-6 left">
+            <div class="col-lg-6 col-md-6 col-xs-6">
+                <label>Sortuj:</label>
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-6">
+                <select ng-model="orderProp"  ng-options="sort as sort.label for sort in sortList" class="form-control">
+                    <option value="title">Alfabetycznie</option>
+                    <option value="when">Chronologicznie</option>
+                </select>
+            </div>
+            <div ng-if="orderProp">
+                <p>Galerie ulozone: {{orderProp.label}}</p>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-xs-6 right">
+            <div class="col-lg-6 col-md-6 col-xs-6">
+                <label>Szukaj:</label>
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-6">
+                <input ng-model="query">
+            </div>
+
+            <div  ng-if="query != ''">
+                <h6>Wyniki wyszukiwania dla: {{query}}</h6>
+            </div>
+            <div ng-if="query == ''">
+                <h6>Ilosc elementow: {{galleries.length}}</h6>
+            </div>
+        </div>
+    </row>
+
+    <div class="clearfix"> </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-12 image gallery-listing" ng-repeat="gallery in galleries | filter:query | orderBy: orderProp.value">
+        <a href="#/galleries/{{gallery.id}}">
+            <img ng-src="{{gallery.thumbnailUrl}}">
+        </a>
+        <h3>
+            <a href="#/galleries/{{gallery.id}}">{{gallery.title}}</a>
+        </h3>
+        <p><strong>Kiedy:</strong>{{ gallery.when | date : "dd MMMM yyyy"}}</p>
+    </div>
+</section>

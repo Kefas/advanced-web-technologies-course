@@ -1,0 +1,83 @@
+<html ng-app="exampleApp">
+<head>
+    <title>Demo AngularJS</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script>
+        var myApp = angular.module("exampleApp", []);
+        myApp.controller("dayCtrl", function ($scope) {
+            var dayNames = ["niedziela", "poniedzialek", "wtorek", "sroda", "czwartek", "piatek", "sobota"];
+            $scope.date = new Date();
+            $scope.day = dayNames[new Date().getDay()];
+            $scope.afterTomorrow = dayNames[(new Date().getDay() + 2) % 7];
+        });
+        myApp.filter("reverse", function() {
+            return function(input) {
+                var result = "";
+                input = input || "";
+                for (var i=0; i<input.length; i++) {
+                    result = input.charAt(i) + result;
+                }
+                return result;
+            };
+        });
+        myApp.directive('y-widget', function(){
+            return {
+                template: "<h3>Hello angular</h3>"
+            };
+        });
+
+        myApp.directive('my-widget', function() {
+            return {
+                template: function (elem, attr) {
+                    'Atrybut: ' + attr.attribute
+                }
+            };
+        });
+
+        myApp.directive('my-widget', function() {
+            return {
+                template: function (elem, attr) {
+                    'Atrybut: ' + attr.attribute
+                }
+            };
+        });
+
+        myApp.directive('repeater', function() {
+            return {
+                template: function (elem, attr) {
+                    "<h1 ng-repeat='x in attr.times'>{{x}}</h1>"
+                }
+            };
+        });
+    </script>
+</head>
+<body>
+<div class="panel">
+    <div class="page-header">
+        <h3>Aplikacja AngularJS</h3>
+    </div>
+    <h1>1</h1>
+    <h4 ng-controller="dayCtrl">Dzisiejszy dzien to {{day || "(nieznany)"}}</h4>
+    <h4 ng-controller="dayCtrl">Pojutrzejszy dzien to {{afterTomorrow || "(nieznany)"}}</h4>
+    <!--<h4 ng-controller="dayCtrl">{{ date }}</h4>-->
+
+    <h1>2</h1>
+    <h4 ng-controller="dayCtrl">{{ "Dzisiejszy dzien to " +  day | reverse }}</h4>
+    <h4 ng-controller="dayCtrl">{{ "Pojutrzejszy dzien to" + afterTomorrow | reverse }}</h4>
+
+    <h1>3</h1>
+    <y-widget></y-widget>
+
+    <h1>4</h1>
+    <my-widget attribute="My attribute"></my-widget>
+
+    <h1>5</h1>
+    <repeater times="4"></repeater>
+
+    <h1>6</h1>
+
+
+</div>
+</body>
+</html>

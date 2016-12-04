@@ -1,0 +1,33 @@
+[
+  {
+    "id": "londyn-2015",
+    "title": "Londyn",
+    "when": "2015-10-14",
+    "thumbnailUrl": "img/london.jpg"
+  },{
+    "id": "rzym-2015",
+    "title": "Rzym",
+    "when": "2015-12-14",
+    "thumbnailUrl": "img/rzym.jpg"
+  }, {
+    "id": "paryz-2015",
+    "title": "Paryz",
+    "when": "2015-11-14",
+    "thumbnailUrl": "img/paris.jpg"
+  }, {
+    "id": "berlin-2015",
+    "title": "Berlin",
+    "when": "2015-08-14",
+    "thumbnailUrl": "img/berlin.jpg"
+  }, {
+    "id": "moskwa-2015",
+    "title": "Moskwa",
+    "when": "2015-07-14",
+    "thumbnailUrl": "img/moscow.jpg"
+  }, {
+    "id": "madryt-2015",
+    "title": "Madryt",
+    "when": "2015-09-14",
+    "thumbnailUrl": "img/madrid.jpg"
+  }
+]

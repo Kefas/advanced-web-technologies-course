@@ -1,0 +1,14 @@
+[
+  {
+    "label":"Alfabetycznie",
+    "value":"title"
+  },
+  {
+    "label":"Chronologicznie",
+    "value":"when"
+  },
+  {
+    "label":"aChronologicznie",
+    "value":"-when"
+  }
+]

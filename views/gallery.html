@@ -1,0 +1,27 @@
+<h1>Podstrona galerii {{galleryId}}</h1>
+
+
+<h2>
+    {{gallery.when | date: 'EEE' | dayName }}
+    -
+    {{gallery.when | date: 'M' | monthName }}
+</h2>
+
+<row>
+    <div class="col-lg-12 col-md-12 col-xs-12">
+        <row>
+            <div class="col-lg-2 col-md-2 col-xs-2 btn-info my-tag" ng-repeat="tag in gallery.tags">
+                <b>{{tag}}</b>
+            </div>
+        </row>
+    </div>
+    <div class="col-lg-12 col-md-12 col-xs-12 max-image">
+        <img ng-src="{{mainImageUrl}}">
+    </div>
+
+    <div class="col-lg-2 col-md-2 col-xs-2 max-image" ng-repeat="photo in gallery.photos">
+        <img ng-src="{{photo.thumbnailUrl}}" ng-click="setImage(photo)">
+    </div>
+</row>
+
+
