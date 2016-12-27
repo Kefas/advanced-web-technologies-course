@@ -1,0 +1,35 @@
+<section ng-controller="BasketCtrl">
+    <div class="col-lg-8 col-md-10 col-xs-12">
+        <table class="table table-striped" >
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Remove from basket</th>
+            </tr>
+            </thead>
+            <tbody ng-repeat="item in items | filter: cartFilter">
+            <tr>
+                <td>{{item.title}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.category}}</td>
+                <td>
+                    <button id="button-{{item.title}}" type="button" class="btn btn-default right" aria-label="Left Align" ng-click="addOrRemoveCart(item.title)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-lg-8 col-md-10 col-xs-12">
+        <div class="col-lg-4 col-md-5 col-xs-6">
+            <span class="text-lg-left text-md-left text-xs-left"><a href="#/shop"><h3>Kontynuuj zakupy</h3></a></span>
+        </div>
+        <div class="col-lg-4 col-md-5 col-xs-6">
+            <span class="text-lg-right text-md-right text-xs-right"><a href="#/order"><h3>Złóż zamówienie</h3></a></span>
+        </div>
+    </div>
+</section>
